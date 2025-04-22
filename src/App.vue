@@ -1,47 +1,105 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, computed } from 'vue'
+
+const search = ref('')
+
+const items = ref([
+  'Livro 1',
+  'Livro 2',
+  'Livro 3',
+])
+
+const filteredItems = computed(() => {
+  return items.value.filter(item =>
+    item.toLowerCase().includes(search.value.toLowerCase())
+  )
+})
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+      <h1>IFbooks</h1>
+        <p>
+          <span>| Apreço a leiitura</span>
+        </p>
+      <div class="search">
+        <input type="text" v-model="search" placeholder="Pesquisar" class="barra">
+        <ul>
+      <li
+        v-for="item in filteredItems"
+        :key="item"
+        class="filtro"
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+  <ul>
+    <li>
+      Termos
+    </li>
+    <li>
+      Equipe
+    </li>
+    <li>
+      Envio
+    </li>
+    <li>
+      Devoluções
+    </li>
+  </ul>
+  <div class="icons">
+    <ul>
+      <li>
+        <i class="fas fa-shopping-cart"></i>
+      </li>
+      <li>
+        <i class="fa-solid fa-heart"></i>
+      </li>
+      <li>
+        <i class="fa-solid fa-user"></i>
+      </li>
+    </ul>
+  </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <section>
+      <div>
+        <p>Autor de Abril</p>
+        <h2>Eric-Emanuel Schmitt</h2>
+        <p>
+          Eric-Emmanuel Schmitt has been awarded more than 20 literary prizes and distinctions, and in 2001 he received the title of Chevalier des Arts et des Lettres. His books have been translated into over 40 languages.
+        </p>
+        <a href="Acessar">Acessar página do livro</a>
+      </div>
+      <div>
+        <img src="/public/imagens/image.png" alt="imagem">
+      </div>
+    </section>
+    <section>
+      <ul>
+        <li>
+          <i class="fa-solid fa-truck"></i> Frete Grátis
+        </li>
+        <li>
+          <i class="fa-solid fa-star"></i> Livros recomendados
+        </li>
+        <li>
+          <i class="fa-solid fa-book-open"></i> Mais vendidos
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>
+        Lançamentos
+      </h2>
+      <div>
+        <img src="/public/imagens/" alt="">
+      </div>
+    </section>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
