@@ -14,6 +14,8 @@ const filteredItems = computed(() => {
     item.toLowerCase().includes(search.value.toLowerCase())
   )
 })
+
+const valorLivro1 = 23.24;
 </script>
 
 <template>
@@ -95,7 +97,10 @@ const filteredItems = computed(() => {
         Lançamentos
       </h2>
       <div>
-        <img src="/public/imagens/" alt="">
+        <img src="/public/imagens/97819821858242.png" alt="">
+        <h3>Chain of Iron: Volume 2</h3>
+        <p>Cassandra Clare</p>
+        <p>R$ {{ valorLivro1 }}</p>
       </div>
     </section>
   </main>
