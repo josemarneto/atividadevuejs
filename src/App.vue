@@ -16,26 +16,22 @@ const filteredItems = computed(() => {
 })
 
 const valorLivro1 = 23.24;
+const valorLivro2 = 23.24;
+const valorLivro3 = 13.94;
+const valorLivro4 = 16.84;
+const valorLivro5 = 26.92;
+const valorLivro6 = 13.95;
+const valorlivro7 = 26.04;
+const valorLivro8 = 15.81;
 </script>
 
 <template>
   <header>
-      <h1>IFbooks</h1>
-        <p>
-          <span>| Apreço a leiitura</span>
-        </p>
+    <nav>
+      <h1>IFbooks <span>| Apreço a leiitura</span></h1>
       <div class="search">
-        <input type="text" v-model="search" placeholder="Pesquisar" class="barra">
-        <ul>
-      <li
-        v-for="item in filteredItems"
-        :key="item"
-        class="filtro"
-      >
-        {{ item }}
-      </li>
-    </ul>
-  </div>
+        <input type="text" v-model="search" placeholder="Buscar" class="barra">
+      </div>
   <ul>
     <li>
       Termos
@@ -49,25 +45,24 @@ const valorLivro1 = 23.24;
     <li>
       Devoluções
     </li>
+    <li>
+      <i class="fas fa-shopping-cart"></i> |
+    </li>
+    <li>
+      <i class="fa-solid fa-heart"></i> |
+    </li>
+    <li>
+      <i class="fa-solid fa-user"></i> 
+      
+      |
+    </li>
   </ul>
-  <div class="icons">
-    <ul>
-      <li>
-        <i class="fas fa-shopping-cart"></i>
-      </li>
-      <li>
-        <i class="fa-solid fa-heart"></i>
-      </li>
-      <li>
-        <i class="fa-solid fa-user"></i>
-      </li>
-    </ul>
-  </div>
+</nav>
   </header>
 
   <main>
-    <section>
-      <div>
+    <section class="pt1">
+      <div class="div1">
         <p>Autor de Abril</p>
         <h2>Eric-Emanuel Schmitt</h2>
         <p>
@@ -90,6 +85,9 @@ const valorLivro1 = 23.24;
         <li>
           <i class="fa-solid fa-book-open"></i> Mais vendidos
         </li>
+        <li>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </li>
       </ul>
     </section>
     <section>
@@ -99,12 +97,166 @@ const valorLivro1 = 23.24;
       <div>
         <img src="/public/imagens/97819821858242.png" alt="">
         <h3>Chain of Iron: Volume 2</h3>
-        <p>Cassandra Clare</p>
-        <p>R$ {{ valorLivro1 }}</p>
+       <ul>
+        <li>
+          <p>Cassandra Clare</p>
+        </li>
+        <li>{{ valorLivro1 }}</li>
+        <li>
+          <a href="Comprar">Comprar</a>
+        </li>
+       </ul>
+        <img src="/public/imagens/97819821858242(1).png" alt="">
+        <h3>Chain of Thorns</h3>
+        <ul>
+          <li>
+            <p>Cassandra Clare</p>
+          </li>
+          <li>{{ valorLivro2 }}</li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+        <img src="/public/imagens/97819821858242(2).png" alt="">
+        <h3>City of Fallen Angels</h3>
+        <ul>
+          <li>
+            <p>Cassandra Clare</p>
+          </li>
+          <li>
+              {{ valorLivro3 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+        <img src="/public/imagens/97819821858242(3).png" alt="">
+        <h3>Nona the Ninth</h3>
+        <ul>
+          <li>
+            <p>Cassandra Clare</p>
+          </li>
+          <li>
+            {{ valorLivro4 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <img src="/public/imagens/97819821858242(4).png" alt="">
+        <h3>Harlem Shuffle</h3>
+        <ul>
+          <li>
+            <p>Colson Whitehead</p>
+          </li>
+          <li>
+            {{ valorLivro5 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+        <img src="/public/imagens/97819821858242(5).png" alt="">
+        <h3>Two Old Women</h3>
+        <ul>
+          <li>
+            <p>Velma Wallis</p>
+          </li>
+          <li>
+            {{ valorLivro6 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+        <img src="/public/imagens/97819821858242(6).png" alt="">
+        <h3>Carrie Soto Is Back</h3>
+        <ul>
+          <li>
+            <p>Taylor Jenkins Reid</p>
+          </li>
+          <li>
+            {{ valorlivro7 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
+        <img src="/public/imagens/97819821858242(7).png" alt="">
+        <h3>Book Lovers</h3>
+        <ul>
+          <li>
+            <p>Emily Henry</p>
+          </li>
+          <li>
+            {{ valorLivro8 }}
+          </li>
+          <li>
+            <a href="Comprar">Comprar</a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
+  <footer>
+  <div>
+    <h4>IFbooks</h4>
+    <ul>
+      <li>
+        <i class="fa-brands fa-square-facebook"></i>
+      </li>
+      <li>
+        <i class="fa-brands fa-square-instagram"></i>
+      </li>
+      <li>
+        <i class="fa-brands fa-square-twitter"></i>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4>Contato</h4>
+    <li>
+      <i class="fa-solid fa-phone">+55 47 40045263</i>
+    </li>
+    <li>
+      <i class="fa-solid fa-clock">8h às 23h - Seg a Sex</i>
+    </li>
+    <li>
+      <i class="fa-solid fa-envelope">contato@ifbooks.com</i>
+    </li>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <img src="/public/imagens/" alt="">
+      </li>
+    </ul>
+  </div>
+  </footer>
 </template>
 
 <style scoped>
+/*===========Header============*/
+header {
+	margin: 2vw 5vw 2vw 5vw;
+}
+header nav ul {
+	display: flex;
+}
+header nav ul li {
+	margin: 0 10px 0 10px;
+}
+header nav div {
+	display: flex;
+}
+header nav div.search {
+	margin: 0 10px 0 10px;
+}
+/*=============Main================*/
+main section.pt1 {
+	display: flex;
+	margin: 10vw;
+}
 </style>
