@@ -230,9 +230,18 @@ const valorLivro8 = 15.81;
   <div>
     <ul>
       <li>
-        <img src="/public/imagens/" alt="">
+        <img src="/public/imagens/MasterCard-Logo-19791.png" alt="">
+      </li>
+      <li>
+        <img src="/public/imagens/paipal1.png" alt="">
+      </li>
+      <li>
+        <img src="/public/imagens/VISA-card-logo-1.png" alt="">
       </li>
     </ul>
+    <div>
+      <p>&copy; Alguns Direitos Reservados. IFbooks 2025</p>
+    </div>
   </div>
   </footer>
 </template>
