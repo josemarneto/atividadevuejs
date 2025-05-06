@@ -201,7 +201,7 @@ const item = ref([
     <i class="fa-brands fa-square-instagram"></i>
     <i class="fa-brands fa-square-twitter"></i>
   </div>
-  <div>
+  <div class="contato">
     <h2>Contato</h2>
     <i class="fa-solid fa-phone"></i> <p>+55 47 40045263</p>
     <i class="fa-solid fa-clock"></i> <p>8h às 23h - Seg a Sex</p>
@@ -261,7 +261,7 @@ const item = ref([
     text-decoration: none;
     background-color: #27AE60;
     font-size: 1.2rem;
-    padding: 16px;
+    padding:16px;
     border: #27AE60;
     color: white;
     margin: 3vw 0vw;
@@ -306,9 +306,22 @@ const item = ref([
     text-decoration: none;
     border: #27AE60;
     background-color: #27AE60;
+    padding: 16px;
+    margin: 3vw;
+    border-radius: 20px;
+    color: white;
   }
   section.lacamentos div.cima div h2{
     font-size: 1.4rem;
+  }
+  section.lancamentos div.baixo a {
+    text-decoration: none;
+    border: #27AE60;
+    background-color: #27AE60;
+    padding: 16px;
+    margin: 3vw;
+    border-radius: 20px;
+    color: white;
   }
   section.mais div.itenss {
     display: flex;
@@ -345,7 +358,13 @@ const item = ref([
     color: white;
   }
   footer div.ifbooks h2{
-    font-size: 0.9rem;
+    margin: 5vw;
   }
-
+  footer div.ifbooks i {
+    margin: 0vw 2vw;
+    font-size: 2rem;
+  }
+  footer div.contato {
+   justify-content: right;
+  }
 </style>
