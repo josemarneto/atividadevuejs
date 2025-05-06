@@ -6,58 +6,73 @@ const item = ref([
         titulo: 'Chain of Iron: Volume 2',
         autor: 'Cassandra Clare',
         preco: 23.24,
-        capa: "public/imagens/livro1.png",
+        capa: "public/imagens/Livro1.png",
     },
     {
         id: 2,
         titulo: 'Chain of Thorns',
         autor: 'Cassandra Clare',
         preco: 23.24,
-        capa: "public/imagens/livro2.png",
+        capa: "public/imagens/Livro2.png",
     },
     {
         id: 3,
         titulo: 'City of Fallen Angels',
         autor: 'Cassandra Clare',
         preco: 13.94,
-        capa: "public/imagens/livro3.png",
+        capa: "public/imagens/Livro3.png",
     },
     {
         id: 4,
         titulo: 'Nona the Ninth',
         autor: 'Cassandra Clare',
         preco: 16.84,
-        capa: "public/imagens/livro4.png",
+        capa: "public/imagens/Livro4.png",
     },
     {
         id: 5,
         titulo: 'Harlem Shuffle',
         autor: 'Colson Whitehead',
         preco: 26.92,
-        capa: "public/imagens/livro5.png",
+        capa: "public/imagens/Livro5.png",
     },
     {
         id: 6,
         titulo: 'Two Old Women',
         autor: 'Velma Wallis', 
         preco: 13.95,
-        capa: "public/imagens/livro6.png",
+        capa: "public/imagens/Livro6.png",
     },
     {
         id: 7,
         titulo: 'Carrie Soto Is Back',
         autor: 'Taylor Jenkins Reid',
         preco: 26.04,
-        capa: "public/imagens/livro7.png",
+        capa: "public/imagens/Livro7.png",
     },
     {
         id: 8,
         titulo: 'Book Lovers',
         autor: 'Emily Henry',
         preco: 15.81,
-        capa: "public/imagens/livro8.png",
+        capa: "public/imagens/Livro8.png",
     },
 ])
+const carrinhoVisivel = ref(false)
+const carrinho = ref([])
+
+function toggleCarrinho() {
+  carrinhoVisivel.value = !carrinhoVisivel.value
+}
+
+function adicionarAoCarrinho(livro) {
+  const itemExistente = carrinho.value.find(item => item.id === livro.id)
+  if (itemExistente) {
+    itemExistente.quantidade++
+  } else {
+    carrinho.value.push({ ...livro, quantidade: 1 })
+  }
+}
 </script>
 
 <template>
@@ -87,7 +102,7 @@ const item = ref([
         </nav>
     </div>
     <div class="icons">
-      <i class="fa-solid fa-cart-shopping"></i>
+      <i class="fa-solid fa-cart-shopping" @click="toggleCarrinho"></i>
       <span></span>
       <i class="fa-solid fa-heart"></i>
       <span></span>
@@ -134,17 +149,17 @@ const item = ref([
     <div class="cima">
       <div>
         <img src="/public/imagens/Livro1.png" alt="Livro1.png">
-        <h2>Chain of Iron: Volume 2</h2>
+        <h2>{{ item.titulo }}</h2>
         <p>Cassandra Clare</p>
         <p>R$23.24</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
+        <a href="#" @click="addToCart(1)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
       </div>
       <div>
         <img src="/public/imagens/Livro2.png" alt="Livro2.png">
         <h2>Chain of Thorns</h2>
         <p>Cassandra Clare</p>
         <p>R$23.24</p>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
+        <a href="#" @click="addToCart(2)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
       </div>
       
       <div>
@@ -152,7 +167,7 @@ const item = ref([
         <h2>City of Fallen Angels</h2>
         <p>Cassandra Clare</p>
         <p>R$13.94</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
+        <a href="#" @click="addToCart(3)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
       </div>
       <div>
         <img src="/public/imagens/Livro4.png" alt="Livro4.png">
@@ -214,6 +229,16 @@ const item = ref([
     &copy; Alguns direitos reservados. IFbooks 2025. 
   </div>
 </footer>
+<div v-if="mostrarCarrinho" class="carrinho">
+  <h2>Meu Carrinho</h2>
+  <ul>
+    <li v-for="livro in cart" :key="livro.id">
+      {{ livro.titulo }} - {{ livro.quantidade }}x R${{ livro.preco.toFixed(2) }}
+    </li>
+  </ul>
+  <p>Total: R$ {{ cart.reduce((total, livro) => total + livro.preco * livro.quantidade, 0).toFixed(2) }}</p>
+</div>
+
 </template>
 
 <style scoped>
@@ -367,4 +392,16 @@ const item = ref([
   footer div.contato {
    justify-content: right;
   }
+  .carrinho {
+  position: fixed;
+  right: 2vw;
+  top: 10vh;
+  background: white;
+  border: 2px solid #27AE60;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  width: 300px;
+}
+
 </style>
