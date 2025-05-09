@@ -1,63 +1,73 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+
 const item = ref([
-{
-        id: 1,
-        titulo: 'Chain of Iron: Volume 2',
-        autor: 'Cassandra Clare',
-        preco: 23.24,
-        capa: "public/imagens/Livro1.png",
-    },
-    {
-        id: 2,
-        titulo: 'Chain of Thorns',
-        autor: 'Cassandra Clare',
-        preco: 23.24,
-        capa: "public/imagens/Livro2.png",
-    },
-    {
-        id: 3,
-        titulo: 'City of Fallen Angels',
-        autor: 'Cassandra Clare',
-        preco: 13.94,
-        capa: "public/imagens/Livro3.png",
-    },
-    {
-        id: 4,
-        titulo: 'Nona the Ninth',
-        autor: 'Cassandra Clare',
-        preco: 16.84,
-        capa: "public/imagens/Livro4.png",
-    },
-    {
-        id: 5,
-        titulo: 'Harlem Shuffle',
-        autor: 'Colson Whitehead',
-        preco: 26.92,
-        capa: "public/imagens/Livro5.png",
-    },
-    {
-        id: 6,
-        titulo: 'Two Old Women',
-        autor: 'Velma Wallis', 
-        preco: 13.95,
-        capa: "public/imagens/Livro6.png",
-    },
-    {
-        id: 7,
-        titulo: 'Carrie Soto Is Back',
-        autor: 'Taylor Jenkins Reid',
-        preco: 26.04,
-        capa: "public/imagens/Livro7.png",
-    },
-    {
-        id: 8,
-        titulo: 'Book Lovers',
-        autor: 'Emily Henry',
-        preco: 15.81,
-        capa: "public/imagens/Livro8.png",
-    },
+  {
+    id: 1,
+    titulo: 'Chain of Iron: Volume 2',
+    autor: 'Cassandra Clare',
+    preco: 23.24,
+    capa: "public/imagens/Livro1.png",
+    quantidade: 1,
+  },
+  {
+    id: 2,
+    titulo: 'Chain of Thorns',
+    autor: 'Cassandra Clare',
+    preco: 23.24,
+    capa: "public/imagens/Livro2.png",
+    quantidade: 1,
+  },
+  {
+    id: 3,
+    titulo: 'City of Fallen Angels',
+    autor: 'Cassandra Clare',
+    preco: 13.94,
+    capa: "public/imagens/Livro3.png",
+    quantidade: 1,
+  },
+  {
+    id: 4,
+    titulo: 'Nona the Ninth',
+    autor: 'Cassandra Clare',
+    preco: 16.84,
+    capa: "public/imagens/Livro4.png",
+    quantidade: 1,
+  },
+  {
+    id: 5,
+    titulo: 'Harlem Shuffle',
+    autor: 'Colson Whitehead',
+    preco: 26.92,
+    capa: "public/imagens/Livro5.png",
+    quantidade: 1,
+  },
+  {
+    id: 6,
+    titulo: 'Two Old Women',
+    autor: 'Velma Wallis',
+    preco: 13.95,
+    capa: "public/imagens/Livro6.png",
+    quantidade: 1,
+  },
+  {
+    id: 7,
+    titulo: 'Carrie Soto Is Back',
+    autor: 'Taylor Jenkins Reid',
+    preco: 26.04,
+    capa: "public/imagens/Livro7.png",
+    quantidade: 1,
+  },
+  {
+    id: 8,
+    titulo: 'Book Lovers',
+    autor: 'Emily Henry',
+    preco: 15.81,
+    capa: "public/imagens/Livro8.png",
+    quantidade: 1,
+  },
 ])
+
 const carrinhoVisivel = ref(false)
 const carrinho = ref([])
 
@@ -66,7 +76,7 @@ function toggleCarrinho() {
 }
 
 function adicionarAoCarrinho(livro) {
-  const itemExistente = carrinho.value.find(item => item.id === livro.id)
+  const itemExistente = carrinho.value.find(i => i.id === livro.id)
   if (itemExistente) {
     itemExistente.quantidade++
   } else {
@@ -147,68 +157,31 @@ function adicionarAoCarrinho(livro) {
   <section class="lancamentos">
     <h2 class="rapido">Lançamentos</h2>
     <div class="cima">
-      <div>
-        <img src="/public/imagens/Livro1.png" alt="Livro1.png">
-        <h2>{{ item.titulo }}</h2>
-        <p>Cassandra Clare</p>
-        <p>R$23.24</p> 
-        <a href="#" @click="addToCart(1)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      <div>
-        <img src="/public/imagens/Livro2.png" alt="Livro2.png">
-        <h2>Chain of Thorns</h2>
-        <p>Cassandra Clare</p>
-        <p>R$23.24</p>
-        <a href="#" @click="addToCart(2)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      
-      <div>
-        <img src="/public/imagens/Livro3.png" alt="Livro3.png">
-        <h2>City of Fallen Angels</h2>
-        <p>Cassandra Clare</p>
-        <p>R$13.94</p> 
-        <a href="#" @click="addToCart(3)"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      <div>
-        <img src="/public/imagens/Livro4.png" alt="Livro4.png">
-        <h2>Nona the Ninth</h2>
-        <p>Cassandra Clare</p>
-        <p>R$16.84</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-    </div>
-    <div class="baixo">
-      <div>
-        <img src="/public/imagens/Livro5.png" alt="Livro5.png">
-        <h2>Harlem Shuffle</h2>
-        <p>Colson Whitehead</p>
-        <p>R$26.92</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      <div>
-        <img src="/public/imagens/Livro6.png" alt="Livro6.png">
-        <h2>Two Old Women</h2>
-        <p>Two Old Women</p>
-        <p>R$13.95</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      <div>
-        <img src="/public/imagens/Livro7.png" alt="Livro7.png">
-        <h2>Carrie Soto Is Back</h2>
-        <p>Taylor Jenkins Reid</p>
-        <p>R$26.04</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
-      </div>
-      <div>
-        <img src="/public/imagens/Livro8.png" alt="Livro8.png">
-        <h2>Book Lovers</h2>
-        <p>Emily Henry</p>
-        <p>R$15.81</p> 
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i>comprar</a>
+      <div v-for="livro in item" :key="livro.id" class="livro">
+          <img :src="livro.capa" :alt="livro.titulo" />
+          <h2>{{ livro.titulo }}</h2>
+          <p>{{ livro.autor }}</p>
+          <p>R$ {{ livro.preco.toFixed(2) }}</p>
+          <a href="#" @click.prevent="adicionarAoCarrinho(livro)">
+            <i class="fa-solid fa-cart-shopping"></i> comprar
+          </a>
       </div>
     </div>
   </section>
-</main> 
+</main>
+<div v-if="carrinhoVisivel" class="carrinho">
+    <button class="fechar" @click="toggleCarrinho">Fechar</button>
+    <h2>Meu Carrinho</h2>
+    <ul>
+      <li v-for="item in carrinho" :key="item.id">
+        {{ item.titulo }} - {{ item.quantidade }}x R${{ item.preco.toFixed(2) }}
+      </li>
+    </ul>
+    <p>
+      Total: R$
+      {{ carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0).toFixed(2) }}
+    </p>
+  </div>
 <footer>
   <div class="ifbooks">
     <h2>IFbooks</h2>
@@ -229,16 +202,6 @@ function adicionarAoCarrinho(livro) {
     &copy; Alguns direitos reservados. IFbooks 2025. 
   </div>
 </footer>
-<div v-if="mostrarCarrinho" class="carrinho">
-  <h2>Meu Carrinho</h2>
-  <ul>
-    <li v-for="livro in cart" :key="livro.id">
-      {{ livro.titulo }} - {{ livro.quantidade }}x R${{ livro.preco.toFixed(2) }}
-    </li>
-  </ul>
-  <p>Total: R$ {{ cart.reduce((total, livro) => total + livro.preco * livro.quantidade, 0).toFixed(2) }}</p>
-</div>
-
 </template>
 
 <style scoped>
@@ -318,14 +281,29 @@ function adicionarAoCarrinho(livro) {
   }
   section.lancamentos div.cima{
     display: flex;
-    padding: 5vw;
-    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
   }
+  .livro {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: center;
+}
+.livro a {
+  display: block;
+  margin-top: 1rem;
+  background: #27ae60;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 10px;
+}
   section.lancamentos div.baixo{
     display: flex;
-    margin: 5vw;
-    justify-content: space-between;
-    text-decoration: none;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
   }
   section.lancamentos div.cima a {
     text-decoration: none;
@@ -335,18 +313,10 @@ function adicionarAoCarrinho(livro) {
     margin: 3vw;
     border-radius: 20px;
     color: white;
+    flex-wrap: nowrap;
   }
   section.lacamentos div.cima div h2{
     font-size: 1.4rem;
-  }
-  section.lancamentos div.baixo a {
-    text-decoration: none;
-    border: #27AE60;
-    background-color: #27AE60;
-    padding: 16px;
-    margin: 3vw;
-    border-radius: 20px;
-    color: white;
   }
   section.mais div.itenss {
     display: flex;
@@ -394,14 +364,30 @@ function adicionarAoCarrinho(livro) {
   }
   .carrinho {
   position: fixed;
-  right: 2vw;
-  top: 10vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
-  border: 2px solid #27AE60;
-  padding: 20px;
-  border-radius: 10px;
-  z-index: 1000;
-  width: 300px;
+  z-index: 2000;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.carrinho h2 {
+  margin-top: 0;
+}
+
+.carrinho .fechar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #c0392b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 </style>
